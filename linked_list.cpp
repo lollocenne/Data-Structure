@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Node {
@@ -97,6 +98,18 @@ public:
     // Time complexity: O(1)
     int length() const {
         return size;
+    }
+    
+    // Return the list as a vector
+    // Time complexity: O(n)
+    vector<int> toArray() const {
+        vector<int> res;
+        Node* currentNode = head;
+        while (currentNode != nullptr) {
+            res.push_back(currentNode->data);
+            currentNode = currentNode->next;
+        }
+        return res;
     }
     
     // Show the list
