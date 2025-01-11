@@ -10,7 +10,6 @@ public:
 };
 
 class DoubleLinkedList {
-private:
 public:
     Node* head;
     Node* tail;
@@ -48,7 +47,7 @@ public:
             addHead(value);
             return;
         }
-
+        
         if (index == size) {
             addTail(value);
             return;
@@ -77,7 +76,21 @@ public:
         currentNode->next = newNode;
         size++;
     }
-
+    
+    // Revrse the list
+    // Time complexity: O(n)
+    void reverse() {
+        Node* prev = nullptr;
+        Node* next = nullptr;
+        Node* currentNode = head;
+        while (currentNode != nullptr) {
+            next = currentNode->next;   // Temporary remember the next node
+            currentNode->next = prev;   // Reverse the pointer
+            prev = currentNode;         // Move prev forward
+            currentNode = next;         // Move currentNode forward
+        }
+        head = prev;
+    }
     
     // Return list length
     int length() const {
@@ -114,6 +127,8 @@ int main() {
     list.addHead(20);
     list.insertAt(1, 15);
     list.addTail(5);
+    list.printList();
+    list.reverse();
     list.printList();
     cout<<"Length: "<<list.length()<<endl;
     

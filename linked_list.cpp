@@ -9,7 +9,6 @@ public:
 };
 
 class LinkedList {
-private:
 public:
     Node* head;
     int size;
@@ -17,6 +16,7 @@ public:
     LinkedList() : size(0), head(nullptr) {}
     
     // Add a new head
+    // Time complexity: O(1)
     void addHead(int value) {
         Node* newNode = new Node(value);
         newNode->next = head;
@@ -25,6 +25,7 @@ public:
     }
     
     // Insert a new node to a specific index
+    // Time complexity: O(n)
     void insertAt(int index, int value) {
         if (index < 0 || index > size) {
             cout<<"Index out of range"<<endl;
@@ -45,12 +46,29 @@ public:
         size++;
     }
     
+    // Revrse the list
+    // Time complexity: O(n)
+    void reverse() {
+        Node* prev = nullptr;
+        Node* next = nullptr;
+        Node* currentNode = head;
+        while (currentNode != nullptr) {
+            next = currentNode->next;   // Temporary remember the next node
+            currentNode->next = prev;   // Reverse the pointer
+            prev = currentNode;         // Move prev forward
+            currentNode = next;         // Move currentNode forward
+        }
+        head = prev;
+    }
+    
     // Return list length
+    // Time complexity: O(1)
     int length() const {
         return size;
     }
     
     // Show the list
+    // Time complexity: O(n)
     void printList() const {
         Node* currentNode = head;
         while (currentNode != nullptr) {
@@ -80,6 +98,8 @@ int main() {
     list.addHead(20);
     list.addHead(30);
     list.insertAt(1, 15);
+    list.printList();
+    list.reverse();
     list.printList();
     cout<<"Length: "<<list.length()<<endl;
     
