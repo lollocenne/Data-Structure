@@ -77,6 +77,68 @@ public:
         size++;
     }
     
+    // Delete the head
+    // Time complexity: O(1)
+    void deleteHead() {
+        if (head == nullptr) {return;}
+        Node* temp = head;
+        head = head->next;
+        if (head == nullptr) {
+            tail = nullptr;
+        } else {
+            head->prev = nullptr;
+        }
+        delete temp;
+        size--;
+    }
+    
+    void deleteTail() {
+        if (tail == nullptr) {return;}
+        Node* temp = tail;
+        tail = tail->prev;
+        if (tail == nullptr) {
+            head = nullptr;
+        } else {
+            tail->next = nullptr;
+        }
+        delete temp;
+        size--;
+    }
+    
+    // Delete a node to a specific index
+    // Time complexity: O(n)
+    void deleteAt(int index) {
+        if (index < 0 || index >= size) {
+            return;
+        }
+        if (index == 0) {
+            deleteHead();
+            return;
+        }
+        if (index == size - 1) {
+            deleteTail();
+            return;
+        }
+        
+        Node* currentNode;
+        // Decide whether to start from the head or the tail
+        if (index <= size / 2) {
+            currentNode = head;
+            for (int i = 0; i < index; i++) {
+                currentNode = currentNode->next;
+            }
+        } else {
+            currentNode = tail;
+            for (int i = size - 1; i > index; i--) {
+                currentNode = currentNode->prev;
+            }
+        }
+        currentNode->prev->next = currentNode->next;
+        currentNode->next->prev = currentNode->prev;
+        delete currentNode;
+        size--;
+    }
+    
     // Revrse the list
     // Time complexity: O(n)
     void reverse() {

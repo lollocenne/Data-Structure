@@ -46,6 +46,38 @@ public:
         size++;
     }
     
+    // Delete the head
+    // Time complexity: O(1)
+    void deleteHead() {
+        if (head == nullptr) {return;}
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+        size--;
+    }
+    
+    // Delete a node to a specific index
+    // Time complexity: O(n)
+    void deleteAt(int index) {
+        if (index < 0 || index >= size) {
+            cout<<"Index out of range"<<endl;
+            return;
+        }
+        if (index == 0) {
+            deleteHead();
+            return;
+        }
+        
+        Node* currentNode = head;
+        for (int i = 0; i < index - 1; i++) {
+            currentNode = currentNode->next;
+        }
+        Node* nodeToDelete = currentNode->next;
+        currentNode->next = nodeToDelete->next;
+        delete nodeToDelete;
+        size--;
+    }
+    
     // Revrse the list
     // Time complexity: O(n)
     void reverse() {
@@ -98,6 +130,7 @@ int main() {
     list.addHead(20);
     list.addHead(30);
     list.insertAt(1, 15);
+    list.deleteAt(2);
     list.printList();
     list.reverse();
     list.printList();
