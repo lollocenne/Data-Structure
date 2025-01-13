@@ -10,9 +10,11 @@ public:
 };
 
 class LinkedList {
+private:
+    int size;
+    
 public:
     Node* head;
-    int size;
     
     LinkedList() : size(0), head(nullptr) {}
     

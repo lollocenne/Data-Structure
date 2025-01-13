@@ -11,14 +11,17 @@ public:
 };
 
 class DoubleLinkedList {
+private:
+    int size;
+    
 public:
     Node* head;
     Node* tail;
-    int size;
     
     DoubleLinkedList() : size(0), head(nullptr), tail(nullptr) {}
     
     // Add a new head
+    // Time complexity: O(1)
     void addHead(int value) {
         Node* newNode = new Node(value);
         newNode->next = head;
@@ -29,6 +32,8 @@ public:
         size++;
     }
     
+    // Add a new tail
+    // Time complexity: O(1)
     void addTail(int value) {
         Node* newNode = new Node(value);
         tail->next = newNode;
@@ -38,6 +43,8 @@ public:
         size++;
     }
     
+    // Insert a node to a specific index
+    // Time complexity: O(n)
     void insertAt(int index, int value) {
         if (index < 0 || index > size) {
             cout << "Index out of range" << endl;
