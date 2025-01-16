@@ -81,7 +81,6 @@ public:
         size--;
     }
     
-    
     // Overload of the [] operator for read-only access
     int operator[](size_t index) const {
         if (index < 0 || index >= size) {
