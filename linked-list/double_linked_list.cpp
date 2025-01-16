@@ -149,6 +149,48 @@ public:
         size--;
     }
     
+    // Overload of the [] operator for read-only access
+    int operator[](size_t index) const {
+        if (index < 0 || index >= size) {
+            throw out_of_range("Index out of range");
+        }
+        Node* currentNode;
+        // Decide whether to start from the head or the tail
+        if (index <= size / 2) {
+            currentNode = head;
+            for (int i = 0; i < index; i++) {
+                currentNode = currentNode->next;
+            }
+        } else {
+            currentNode = tail;
+            for (int i = size - 1; i > index; i--) {
+                currentNode = currentNode->prev;
+            }
+        }
+        return currentNode->data;
+    }
+    
+    // Overload of the [] operator for read-write access
+    int& operator[](size_t index) {
+        if (index < 0 || index >= size) {
+            throw out_of_range("Index out of range");
+        }
+        Node* currentNode;
+        // Decide whether to start from the head or the tail
+        if (index <= size / 2) {
+            currentNode = head;
+            for (int i = 0; i < index; i++) {
+                currentNode = currentNode->next;
+            }
+        } else {
+            currentNode = tail;
+            for (int i = size - 1; i > index; i--) {
+                currentNode = currentNode->prev;
+            }
+        }
+        return currentNode->data;
+    }
+    
     // Revrse the list
     // Time complexity: O(n)
     void reverse() {
@@ -214,6 +256,7 @@ int main() {
     list.printList();
     list.reverse();
     list.printList();
+    cout<<list[2]<<endl;
     cout<<"Length: "<<list.length()<<endl;
     
     return 0;

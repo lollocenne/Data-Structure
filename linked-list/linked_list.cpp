@@ -84,7 +84,7 @@ public:
     // Overload of the [] operator for read-only access
     int operator[](size_t index) const {
         if (index < 0 || index >= size) {
-            throw std::out_of_range("Index out of range");
+            throw out_of_range("Index out of range");
         }
         Node* currentNode = head;
         for (int i = 0; i < index; i++) {
@@ -92,11 +92,11 @@ public:
         }
         return currentNode->data;
     }
-
-     // Overload of the [] operator for read-write access
+    
+    // Overload of the [] operator for read-write access
     int& operator[](size_t index) {
         if (index < 0 || index >= size) {
-            throw std::out_of_range("Index out of range");
+            throw out_of_range("Index out of range");
         }
         Node* currentNode = head;
         for (int i = 0; i < index; i++) {
