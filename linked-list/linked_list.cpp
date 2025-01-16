@@ -11,7 +11,7 @@ public:
 
 class LinkedList {
 private:
-    int size;
+    size_t size;
     
 public:
     Node* head;
@@ -98,7 +98,7 @@ public:
     
     // Return list length
     // Time complexity: O(1)
-    int length() const {
+    size_t length() const {
         return size;
     }
     

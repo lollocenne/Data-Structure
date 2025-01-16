@@ -6,7 +6,7 @@ using namespace std;
 class Stack {
 private:
     vector<int> data;
-    int size = 0;
+    size_t size = 0;
     
 public:
     // Add a value to the top
@@ -36,7 +36,7 @@ public:
     
     // Return stack length
     // Time complexity: O(1)
-    int length() const {
+    size_t length() const {
         return size;
     }
 };

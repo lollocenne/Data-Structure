@@ -12,7 +12,7 @@ public:
 
 class DoubleLinkedList {
 private:
-    int size;
+    size_t size;
     
 public:
     Node* head;
@@ -165,7 +165,7 @@ public:
     }
     
     // Return list length
-    int length() const {
+    size_t length() const {
         return size;
     }
     
