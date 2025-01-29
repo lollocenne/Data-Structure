@@ -31,7 +31,7 @@ public:
     // Time complexity: O(n)
     void insertAt(int index, int value) {
         if (index < 0 || index > size) {
-            cout<<"Index out of range"<<endl;
+            cout << "Index out of range" << endl;
             return;
         }
         if (index == 0) {
@@ -63,7 +63,7 @@ public:
     // Time complexity: O(n)
     void deleteAt(int index) {
         if (index < 0 || index >= size) {
-            cout<<"Index out of range"<<endl;
+            cout << "Index out of range" << endl;
             return;
         }
         if (index == 0) {
@@ -143,13 +143,13 @@ public:
     void printList() const {
         Node* currentNode = head;
         while (currentNode != nullptr) {
-            cout<<currentNode->data;
+            cout << currentNode->data;
             if (currentNode->next != nullptr) {
-                cout<<" -> ";
+                cout << " -> ";
             }
             currentNode = currentNode->next;
         }
-        cout<<endl;
+        cout << endl;
     }
     
     ~LinkedList() {
@@ -173,10 +173,10 @@ int main() {
     list.printList();
     list.reverse();
     list.printList();
-    cout<<list[0]<<endl;
+    cout << list[0] << endl;
     list[0] = 5;
     list.printList();
-    cout<<"Length: "<<list.length()<<endl;
+    cout << "Length: " << list.length() << endl;
     
     return 0;
 }

@@ -22,11 +22,11 @@ public:
     // Time complexity O(n + e) where n is the number of nodes and e is the number of edges
     void printGraph() const {
         for (const auto& pair : adjacencyList) {
-            cout<<pair.first<<": ";
+            cout << pair.first << ": ";
             for (const auto& neighbor : pair.second) {
-                cout<<neighbor<<", ";
+                cout << neighbor << ", ";
             }
-            cout<<endl;
+            cout << endl;
         }
     }
     
@@ -60,12 +60,12 @@ int main() {
     g.printGraph();
     
     int node = 2;
-    cout<< "Neighbors of node "<<node<< ": ";
+    cout << "Neighbors of node " << node << ": ";
     vector<int> neighbors = g.getNeighbors(node);
     for (int neighbor : neighbors) {
-        cout<<neighbor<<", ";
+        cout << neighbor << ", ";
     }
-    cout<<endl;
+    cout << endl;
     
     return 0;
 }

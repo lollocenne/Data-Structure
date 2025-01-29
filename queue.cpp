@@ -45,8 +45,8 @@ int main() {
     queue.enqueue(10);
     queue.enqueue(20);
     queue.enqueue(30);
-    cout<<"Length: "<<queue.length()<<endl;
-    cout<<"Removed element: "<<queue.dequeue()<<endl;
+    cout << "Length: " << queue.length() << endl;
+    cout << "Removed element: " << queue.dequeue() << endl;
     
     return 0;
 }

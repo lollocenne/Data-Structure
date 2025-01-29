@@ -46,10 +46,10 @@ int main() {
     stack.push(10);
     stack.push(20);
     stack.push(30);
-    cout<<stack.pop()<<endl;
+    cout << stack.pop() << endl;
     stack.push(40);
-    cout<<stack.pop()<<endl;
-    cout<<"Length: "<<stack.length()<<endl;
+    cout << stack.pop() << endl;
+    cout << "Length: " << stack.length() << endl;
     
     return 0;
 }

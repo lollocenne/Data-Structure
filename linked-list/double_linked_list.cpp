@@ -227,13 +227,13 @@ public:
     void printList() const {
         Node* currentNode = head;
         while (currentNode != nullptr) {
-            cout<<currentNode->data;
+            cout << currentNode->data;
             if (currentNode->next != nullptr) {
-                cout<<" -> ";
+                cout << " -> ";
             }
             currentNode = currentNode->next;
         }
-        cout<<endl;
+        cout << endl;
     }
     
     ~DoubleLinkedList() {
@@ -256,8 +256,8 @@ int main() {
     list.printList();
     list.reverse();
     list.printList();
-    cout<<list[2]<<endl;
-    cout<<"Length: "<<list.length()<<endl;
+    cout << list[2] << endl;
+    cout << "Length: " << list.length() << endl;
     
     return 0;
 }
